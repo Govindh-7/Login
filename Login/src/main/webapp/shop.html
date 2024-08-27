@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Gift Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .profile-icon {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            cursor: pointer;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .item {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .item img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .item h3 {
+            margin: 10px 0;
+        }
+        .item p {
+            color: #555;
+        }
+        .item button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .item button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Gift Shop</h1>
+        <img src="profile-icon.png" class="profile-icon" id="profileIcon" style="display: none;" alt="Profile Icon">
+    </header>
+    <nav>
+        <a href="shop.html">Home</a>
+        <a href="cart.html">Cart</a>
+        <a href="Register.html" id="registerLink">Register</a>
+        <a href="login.html" id="loginLink">Login</a>
+    </nav>
+    <div class="container">
+        <div class="item">
+            <img src="item1.jpg" alt="Gift Item 1">
+            <h3>Gift Item 1</h3>
+            <p>$19.99</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="item2.jpg" alt="Gift Item 2">
+            <h3>Gift Item 2</h3>
+            <p>$29.99</p>
+            <button>Add to Cart</button>
+        </div>
+        <div class="item">
+            <img src="item3.jpg" alt="Gift Item 3">
+            <h3>Gift Item 3</h3>
+            <p>$39.99</p>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Gift Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Check if the user is logged in
+        const isLoggedIn = sessionStorage.getItem('loggedIn');
+
+        if (isLoggedIn) {
+            // Show profile icon and hide login/register links
+            document.getElementById('profileIcon').style.display = 'block';
+            document.getElementById('loginLink').style.display = 'none';
+            document.getElementById('registerLink').style.display = 'none';
+        }
+
+        // Profile icon click event
+        document.getElementById('profileIcon').addEventListener('click', function() {
+            window.location.href = 'profile.html';
+        });
+    </script>
+</body>
+</html>

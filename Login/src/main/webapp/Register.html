@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .login-prompt {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .login-prompt a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .login-prompt a:hover {
+            text-decoration: underline;
+        }
+        .message {
+            margin-bottom: 20px;
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form id="registerForm" action="RegServlet" method="POST">
+            <div class="form-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" id="firstname" name="firstname" required>
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name:</label>
+                <input type="text" id="lastname" name="lastname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="rep_password">Repeat Password:</label>
+                <input type="password" id="rep_password" name="rep_password" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+        <div class="login-prompt">
+            <p>Already have an account? <a href="login.html">Login here</a>.</p>
+        </div>
+        <!-- Display message if present -->
+        <div class="message">
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const message = urlParams.get('message');
+                if (message === 'success') {
+                    document.write('Registration successful! Redirecting to home page...');
+                    setTimeout(function() {
+                        window.location.href = 'index.html';
+                    }, 2000); // 2 seconds
+                } else if (message === 'passwords_do_not_match') {
+                    document.write('Passwords do not match. Please try again.');
+                } else if (message === 'registration_failed') {
+                    document.write('Registration failed. Please try again.');
+                } else if (message === 'database_error') {
+                    document.write('Database error occurred. Please try again later.');
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
